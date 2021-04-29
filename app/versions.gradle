@@ -1,0 +1,4 @@
+ext {
+    compose_version = '1.0.0-beta05'
+    ktor_version = '1.5.2'
+}
