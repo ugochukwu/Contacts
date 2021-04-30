@@ -24,15 +24,14 @@ class ContactsListViewModel(private val repo: ContactsListRepository = ContactsL
         }
         return uiState
     }
+
+    fun onSetFavoriteStatusForContact(id: Int, favorite: Boolean) {
+        repo.setFavoriteStatusForContact(id, favorite)?.let { uiState.value = UiState.Success(it) }
+    }
 }
 
 sealed class UiState {
     object Loading : UiState()
     object Error : UiState()
     data class Success(val contacts: List<Contact>) : UiState()
-}
-
-class ContactDetailsViewModel(private val repo: ContactsListRepository = ContactsListRepository.repo()) :
-    ViewModel() {
-    fun getDetails(id: Int) = repo.getContact(id)
 }

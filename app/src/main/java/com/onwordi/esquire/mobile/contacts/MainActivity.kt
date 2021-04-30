@@ -11,7 +11,7 @@ import androidx.navigation.NavType
 import androidx.navigation.compose.*
 import com.onwordi.esquire.mobile.contacts.contactdetails.ContactDetailsScreen
 import com.onwordi.esquire.mobile.contacts.contactdetails.NavArgKeyContactId
-import com.onwordi.esquire.mobile.contacts.contactslist.ContactDetailsViewModel
+import com.onwordi.esquire.mobile.contacts.contactdetails.ContactDetailsViewModel
 import com.onwordi.esquire.mobile.contacts.contactslist.ContactsListScreen
 import com.onwordi.esquire.mobile.contacts.contactslist.ContactsListViewModel
 import com.onwordi.esquire.mobile.contacts.ui.theme.ContactsTheme

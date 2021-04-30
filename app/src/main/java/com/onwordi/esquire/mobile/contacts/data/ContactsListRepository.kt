@@ -25,10 +25,15 @@ class ContactsListRepository {
     }
 
     suspend fun getContacts(): List<Contact> = withContext(Dispatchers.IO) {
-        client.use { client -> client.get<List<Contact>>(endpoint).also { cache = it } }
+        cache ?: client.use { client -> client.get<List<Contact>>(endpoint).also { cache = it } }
     }
 
     fun getContact(id: Int): Contact? = cache?.find { it.id == id }
+
+    fun setFavoriteStatusForContact(id: Int, favorite: Boolean): List<Contact>? {
+        return cache?.toMutableList()?.map { if (it.id == id) it.copy(favorite = favorite) else it }
+            .also { cache = it }
+    }
 
     companion object {
         private var repo: ContactsListRepository? = null

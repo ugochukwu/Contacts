@@ -23,7 +23,6 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.zIndex
 import com.google.accompanist.coil.rememberCoilPainter
-import com.onwordi.esquire.mobile.contacts.contactslist.ContactDetailsViewModel
 import com.onwordi.esquire.mobile.contacts.contactslist.avatarUrl
 import com.onwordi.esquire.mobile.contacts.contactslist.dummyContact
 import com.onwordi.esquire.mobile.contacts.data.Contact

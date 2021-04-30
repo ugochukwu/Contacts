@@ -7,7 +7,7 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class ContactResult(
-    val contacts: List<Contact>
+    val contacts: List<Contact>,
 )
 
 @Parcelize
@@ -19,7 +19,8 @@ data class Contact(
     val email: String,
     val phone: String,
     val website: String,
-    val company: Company
+    val company: Company,
+    val favorite: Boolean = false,
 ) : Parcelable
 
 @Parcelize
@@ -29,7 +30,7 @@ data class Address(
     val suite: String,
     val city: String,
     val zipcode: String,
-    val geo: Geo
+    val geo: Geo,
 ) : Parcelable
 
 @Parcelize
@@ -37,12 +38,12 @@ data class Address(
 data class Company(
     val name: String,
     val catchPhrase: String,
-    val bs: String
+    val bs: String,
 ) : Parcelable
 
 @Parcelize
 @Serializable
 data class Geo(
     val lat: Double,
-    val lng: Double
+    val lng: Double,
 ) : Parcelable
