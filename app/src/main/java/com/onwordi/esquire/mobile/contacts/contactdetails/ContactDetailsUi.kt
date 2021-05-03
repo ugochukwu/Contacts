@@ -32,7 +32,7 @@ import com.onwordi.esquire.mobile.contacts.ui.theme.ContactsTheme
 fun ContactDetailsScreen(contactId: Int? = 0, contactDetailsViewModel: ContactDetailsViewModel) {
 
     Scaffold(topBar = { TopAppBar(title = { Text("Details") }) }) {
-        val contact = contactDetailsViewModel.getDetails(contactId ?: -99)
+        val contact = contactDetailsViewModel.getDetails(contactId ?: InvalidContactId)
         if (contact == null) {
             Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
                 Text("No Contact Available", style = MaterialTheme.typography.h3)
@@ -47,7 +47,7 @@ fun ContactDetailsScreen(contactId: Int? = 0, contactDetailsViewModel: ContactDe
 @Composable
 fun ContactDetailsPreview() {
     val contact = dummyContact.copy(
-        email = "michel.onwordi@gmail.com",
+        email = "michel.onwordi@me.com",
         phone = "036498984720",
         website = "www.michelonwordi.com"
     )
@@ -146,3 +146,4 @@ fun ContactDetailsVariant2Preview() {
 }
 
 const val NavArgKeyContactId = "contactId"
+const val InvalidContactId = -99
