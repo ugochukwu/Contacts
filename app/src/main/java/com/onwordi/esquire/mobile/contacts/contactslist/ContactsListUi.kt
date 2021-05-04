@@ -48,7 +48,10 @@ private fun ContactListContent(uiState: UiState, onContactClick: (Contact) -> Un
 }
 
 @Composable
-fun ContactsList(contacts: List<Contact>, modifier: Modifier, onContactClick: (Contact) -> Unit) {
+fun ContactsList(
+    contacts: List<Contact>, modifier: Modifier,
+    onContactClick: (Contact) -> Unit
+) {
     LazyColumn(modifier = modifier.fillMaxSize()) {
         items(contacts, key = { it.id }) {
             ContactListItem(it, onContactClick)
@@ -79,7 +82,8 @@ fun ContactListItem(
         Image(
             painter = rememberCoilPainter(
                 request = contact.avatarUrl(80),
-                fadeIn = true),
+                fadeIn = true
+            ),
             contentDescription = "Avatar image",
             modifier = Modifier
                 .padding(end = 16.dp)
