@@ -25,7 +25,11 @@ class ContactsListRepository {
     }
 
     suspend fun getContacts(): List<Contact> = withContext(Dispatchers.IO) {
-        cache ?: client.use { client -> client.get<List<Contact>>(endpoint).also { cache = it } }
+        cache ?: client.use { client ->
+            client.get<List<Contact>>(endpoint)
+                .mapIndexed { index, contact -> contact.copy(favorite = index.isEven()) }
+                .also { cache = it }
+        }
     }
 
     fun getContact(id: Int): Contact? = cache?.find { it.id == id }
@@ -42,3 +46,5 @@ class ContactsListRepository {
         }
     }
 }
+
+private fun Int.isEven() = this % 2 == 0
